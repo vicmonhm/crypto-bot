@@ -20,13 +20,13 @@ def start(update, context):
     context.bot.send_message(user_id, "Hello, this bot was invented for people who want to know value for every crypto as every coin, for commands write: /commands")
 def commands(update, context):
     user_id = update.effective_user.id
-    context.bot.send_message(user_id, "commands:/find, that command invented for find the value of some crypto as a coin")
-    context.bot.send_message(user_id, "instruction: you should write /find and after this write crypto and after name of coin")
-    context.bot.send_message(user_id, "example: /find btc usd")
+    context.bot.send_message(user_id, "commands:/check, that command invented for checking the value of some crypto as a coin")
+    context.bot.send_message(user_id, "instruction: you should write /check and after this write crypto and after name of coin")
+    context.bot.send_message(user_id, "example: /check btc usd")
 # Function for the /bet_A command (bet on Option A)
 
 # Function for the /bet_B command (bet on Option B)
-def find_crypto(update, context):
+def check_crypto(update, context):
     crypto = context.args[0]
     coin = context.args[1]
     user_id = update.effective_user.id
@@ -70,12 +70,12 @@ def find_crypto(update, context):
 # Add command handlers
 start_handler = CommandHandler('start', start)
 commands_handler = CommandHandler('commands', commands)
-find_crypto_handler = CommandHandler('find', find_crypto)
+check_crypto_handler = CommandHandler('check', check_crypto)
 
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(commands_handler)
-dispatcher.add_handler(find_crypto_handler)
+dispatcher.add_handler(check_crypto_handler)
 
 # Start the bot
 updater.start_polling()
